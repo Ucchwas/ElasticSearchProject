@@ -16,7 +16,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @Configuration
- @EnableElasticsearchRepositories(basePackages = "com.elasticsearch.demo.repository")
+@EnableElasticsearchRepositories(basePackages = "com.elasticsearch.demo.repository")
 public class EsConfig {
 
     @Value("${elasticsearch.host}")
@@ -42,20 +42,23 @@ public class EsConfig {
         return client;
     }*/
 
+
     @Bean
     public Client client() throws Exception {
-
+        System.out.println("fgg");
         Settings esSettings = Settings.settingsBuilder()
                 .put("cluster.name", EsClusterName)
                 .build();
 
         //https://www.elastic.co/guide/en/elasticsearch/guide/current/_transport_client_versus_node_client.html
 //        return TransportClient.builder().settings(esSettings).build().ad
-        return TransportClient.builder()
+        TransportClient client =  TransportClient.builder()
                 .settings(esSettings)
                 .build()
                 .addTransportAddress(
                         new InetSocketTransportAddress(InetAddress.getByName(EsHost), EsPort));
+        System.out.println("-----------");
+        return client;
     }
 
     @Bean

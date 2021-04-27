@@ -3,6 +3,7 @@ package com.elasticsearch.demo.service;
 import com.elasticsearch.demo.model.Book;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
