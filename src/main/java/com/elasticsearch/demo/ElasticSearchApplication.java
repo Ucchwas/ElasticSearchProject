@@ -41,7 +41,7 @@ public class ElasticSearchApplication implements CommandLineRunner {
 	}
 
 	private void printElasticSearchInfo() {
-		System.out.println("Ucchwas");
+		System.out.println("Ucc");
 
 		System.out.println("--ElasticSearch--");
 		Client client = es.getClient();
