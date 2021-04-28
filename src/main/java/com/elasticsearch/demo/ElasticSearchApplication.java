@@ -34,13 +34,14 @@ public class ElasticSearchApplication implements CommandLineRunner {
 		bookService.save(new Book("1002", "Apache Lucene Basics", "RP", "13-MAR-2017"));
 		bookService.save(new Book("1003", "Apache Solr Basics", "RR", "21-MAR-2017"));
 
-		Page<Book> books = bookService.findByAuthor("RR", new PageRequest(0, 10));
+		Page<Book> books = bookService.findByAuthor("RP", new PageRequest(0, 10));
 
 
 		books.forEach(x -> System.out.println(x));
 	}
 
 	private void printElasticSearchInfo() {
+		System.out.println("Ucchwas");
 
 		System.out.println("--ElasticSearch--");
 		Client client = es.getClient();
@@ -51,4 +52,5 @@ public class ElasticSearchApplication implements CommandLineRunner {
 		});
 		System.out.println("--ElasticSearch--");
 	}
+
 }
